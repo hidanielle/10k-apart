@@ -1,0 +1,33 @@
+@import 'reset';
+
+html,
+body,
+main,
+section {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+  &:focus {
+    opacity: 1;
+  }
+}
+
+#pagePanel1 {
+  background-color: red;
+}
+
+#pagePanel2 {
+  background-color: blue;
+}
