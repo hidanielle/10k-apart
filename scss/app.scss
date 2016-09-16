@@ -12,6 +12,12 @@
   font-size: calculateRem($size);
 }
 
+
+body {
+  background-color: #E6E1C5;
+}
+
+
 // Helpers
 
 %_accessible-invisible {
@@ -31,24 +37,71 @@
 .game-box {
   width: 100%;
   max-width: 50rem;
+  margin: 0 auto;
+  background-color: white;
+  border: 25px solid #D4CB92;
 }
 
 .game-row {
   &:not(:last-of-type) {
     .game-card {
-      border-bottom: 1px solid black;
+      border-bottom: .5em solid #D4CB92;
     }
   }
 }
 
 .game-card {
-  // background-color: grey; // TEMP
-
+  position: relative;
   width: 33.333%;
   padding-bottom: 33.333%;
   float: left;
 
   &:not(:last-child) {
-    border-right: 1px solid black;
+    border-right: .5em solid #D4CB92;
+  }
+}
+
+label.x,
+label.o {
+  position: absolute;
+  width: 20%;
+  cursor: pointer;
+  z-index: 2;
+  transition: width 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  .shape {
+    transition: stroke-width .2s ease;
+  }
+  &:hover {
+    .shape {
+      stroke-width: 10;
+    }
+  }
+}
+
+label.x {
+  top: 0;
+  left: 0;
+}
+
+label.o {
+  bottom: 0;
+  right: 0;
+}
+
+input[type="radio"] {
+  &:focus {
+    + label .shape {
+      stroke-width: 10;
+    }
+  }
+  &:checked {
+    + label {
+      z-index: 1;
+      width: 100%;
+    }
+  }
+  &:not(:checked) {
+    opacity: 0;
+    width: 2em;
   }
 }
