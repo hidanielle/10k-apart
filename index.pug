@@ -6,12 +6,28 @@ html(lang='en')
     link(rel='stylesheet', type='text/css', href='/styles/app.css')
   body
     header
-      h1 Test
-      nav(aria-label='Main Navigation')
-    main
-      section#pagePanel1(class='panel' tabindex='0')
-        h2 Page 1 Content
-      section#pagePanel2(class='panel' tabindex='0')
-        h2 Page 2 Content
-    //- footer
-    //-   h2 By Danielle
+      h1 Tic Tac Toe
+
+    main.game-box
+
+      mixin row(number)
+        .game-row
+
+          fieldset
+            legend._sr Row #{number} of 3
+
+            each val in [1,2,3]
+
+              .game-card
+                fieldset
+                  legend._sr(aria-describedby="Row "+val) Column #{val} of 3
+
+                  input(id=number+"-"+ val +"-1", type="radio", name=number+"-"+val, value="X")
+                  label(for=number+"-"+ val +"-1") X
+
+                  input(id=number+"-"+ val +"-2", type="radio", name=number+"-"+val, value="O")
+                  label(for=number+"-"+ val +"-2") O
+
+      +row(1)
+      +row(2)
+      +row(3)
