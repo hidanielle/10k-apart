@@ -21,17 +21,17 @@ html(lang='en')
 
             each val in [1,2,3]
 
-              .game-card
+              .game-card(id='r'+number+"_c"+ val)
                 fieldset
                   legend._sr(aria-describedby="Row "+val) Column #{val} of 3
 
-                  input._sr(id=number+"-"+ val +"-1", type="radio", name=number+"-"+val, value="X")
-                  label.x(for=number+"-"+ val +"-1")
+                  input._sr(id='r'+number+"_c"+ val +"_1", type="radio", name='r'+number+"_c"+val, value="1", onclick="checkSelections()")
+                  label.x(for='r'+number+"_c"+ val +"_1")
                     svg(viewbox="0 0 40 40")
                       path(class="shape x", stroke="#395C6B", fill="transparent", stroke-width="5", d="M 10,10 L 30,30 M 30,10 L 10,30")
 
-                  input._sr(id=number+"-"+ val +"-2", type="radio", name=number+"-"+val, value="O")
-                  label.o(for=number+"-"+ val +"-2")
+                  input._sr(id='r'+number+"_c"+ val +"_2", type="radio", name='r'+number+"_c"+val, value="2", onclick="checkSelections()")
+                  label.o(for='r'+number+"_c"+ val +"_2")
                     svg(viewbox="0 0 40 40")
                       circle(class="shape o", stroke="#80A4ED", stroke-width="4", fill="none", cx="20", cy="20", r="10")
 
@@ -39,3 +39,5 @@ html(lang='en')
       +row(1)
       +row(2)
       +row(3)
+
+    script(src='js/app.js', type="text/javascript")
