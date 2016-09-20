@@ -8,7 +8,7 @@ var gulp          = require('gulp')
     uglify        = require('gulp-uglify'),
     imagemin      = require('gulp-imagemin'),
     pug           = require('gulp-pug'),
-    del           = require('del');
+    del           = require('del')
 
 gulp.task('sass', function () {
  return gulp.src('./scss/**/*.scss')
@@ -48,11 +48,6 @@ gulp.task('views', function buildHTML() {
 gulp.task('clean', function() {
     return del(['./dist/']);
 });
-
-// gulp.task('copy', function() {
-//    gulp.src('img/**/*.{png,jpeg,ico,svg}')
-//    .pipe(gulp.dest('./img'));
-// });
 
 gulp.task('watch', ['default'], function() {
 
