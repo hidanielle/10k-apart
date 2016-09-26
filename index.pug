@@ -14,7 +14,7 @@ html(lang='en')
 
     div.game-box(role="main")
 
-      div#win(aria-live="polite")
+      div#win
 
       mixin row(number)
         .game-row
@@ -30,11 +30,13 @@ html(lang='en')
 
                   input._sr(id='r'+number+"_c"+ val +"_1", type="radio", name='r'+number+"_c"+val, value="1", onclick="checkSelections()")
                   label.x(for='r'+number+"_c"+ val +"_1")
+                    span._sr X
                     svg(viewbox="0 0 40 40")
                       path(class="shape x", stroke="#395C6B", fill="transparent", stroke-width="5", d="M 10,10 L 30,30 M 30,10 L 10,30")
 
                   input._sr(id='r'+number+"_c"+ val +"_2", type="radio", name='r'+number+"_c"+val, value="2", onclick="checkSelections()")
                   label.o(for='r'+number+"_c"+ val +"_2")
+                    span._sr O
                     svg(viewbox="0 0 40 40")
                       circle(class="shape o", stroke="#80A4ED", stroke-width="4", fill="none", cx="20", cy="20", r="10")
 

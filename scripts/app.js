@@ -27,9 +27,9 @@ function checkWin() {
 
   for (var i = 0; i < scoreMap.length; ++i) {
     if(scoreMap[i] === 3) {
-      showWin('X')
+      showWin('X');
     } else if (scoreMap[i] === 6) {
-      showWin('O')
+      showWin('O');
     }
   }
 
@@ -39,12 +39,17 @@ function showWin(winner) {
 
   var winContainer = document.getElementById('win');
 
-  var winContent = '<strong><span>'+ winner +'</span> Wins!</strong><button onclick="window.location.reload()">Play again</button>';
+  var winContent = '<strong id="winTitle" tabindex="0"><span>'+ winner +'</span> Wins!</strong><button onclick="window.location.reload()">Play again</button>';
 
-  winContainer.style.visibility = "visible";
-  winContainer.style.opacity = "1";
+  winContainer.style.visibility = 'visible';
+  winContainer.style.opacity = '1';
 
   winContainer.innerHTML = winContent;
+
+  setTimeout(function(){
+    document.getElementById('winTitle').focus();
+  }, 1000);
+
 
 }
 
