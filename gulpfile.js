@@ -8,7 +8,8 @@ var gulp          = require('gulp')
     uglify        = require('gulp-uglify'),
     imagemin      = require('gulp-imagemin'),
     pug           = require('gulp-pug'),
-    del           = require('del')
+    del           = require('del');
+
 
 gulp.task('sass', function () {
  return gulp.src('./scss/**/*.scss')

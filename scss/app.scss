@@ -43,6 +43,10 @@ b {
   text-transform: uppercase;
 }
 
+svg path {
+  stroke: inherit;
+}
+
 
 // Helpers
 
@@ -110,10 +114,16 @@ b {
   width: 33.333%;
   padding-bottom: 33.333%;
   float: left;
-
   &:not(:last-child) {
     border-right: .5em solid #D4CB92;
   }
+}
+
+.ico-x {
+  stroke: #395C6B;
+}
+.ico-o {
+  stroke: #80A4ED;
 }
 
 label.x,
@@ -128,12 +138,10 @@ label.o {
     width: 100%;
     height: 100%;
   }
-  .shape {
-    transition: stroke-width .2s ease;
-  }
   &:hover {
-    .shape {
-      stroke-width: 10;
+    .ico-x,
+    .ico-o {
+      stroke: indianred;
     }
   }
 }
@@ -150,8 +158,11 @@ label.o {
 
 input[type="radio"] {
   &:focus {
-    + label .shape {
-      stroke-width: 10;
+    + label {
+      .ico-x,
+      .ico-o {
+        stroke: indianred;
+      }
     }
   }
   &:checked {
@@ -160,10 +171,6 @@ input[type="radio"] {
       width: 100%;
       height: 100%;
     }
-  }
-  &:not(:checked) {
-    opacity: 0;
-    width: 2em;
   }
 }
 

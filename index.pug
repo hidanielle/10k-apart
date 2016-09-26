@@ -6,7 +6,26 @@ html(lang='en')
     link(rel="icon", type="image/x-icon", href="img/favicon.ico")
     title 10k Apart Test
     link(rel='stylesheet', type='text/css', href='styles/app.css')
-  body
+
+    script.
+      function lazyLoad(s) {
+          var d = window.document,
+              b = d.body,
+              e = d.createElement("script");
+          
+          e.async = true;
+          e.src = s;
+          b.appendChild(e);
+      }
+
+  body(onload="lazyLoad('js/app.js')")
+
+    svg(style="display:none;")
+      symbol#icoX(viewbox="0 0 40 40")
+        path(class="shape x", fill="transparent", stroke-width="5", d="M 10,10 L 30,30 M 30,10 L 10,30")
+      symbol#icoO(viewbox="0 0 40 40")
+        circle(class="shape o", stroke-width="4", fill="none", cx="20", cy="20", r="10")
+
     header
       h1 Tic Tac Toe
       p #[b A riveting game of skill. ]
@@ -31,19 +50,16 @@ html(lang='en')
                   input._sr(id='r'+number+"_c"+ val +"_1", type="radio", name='r'+number+"_c"+val, value="1", onclick="checkSelections()")
                   label.x(for='r'+number+"_c"+ val +"_1")
                     span._sr X
-                    svg(viewbox="0 0 40 40")
-                      path(class="shape x", stroke="#395C6B", fill="transparent", stroke-width="5", d="M 10,10 L 30,30 M 30,10 L 10,30")
+                    svg
+                      use.ico-x(xlink:href="#icoX")
 
                   input._sr(id='r'+number+"_c"+ val +"_2", type="radio", name='r'+number+"_c"+val, value="2", onclick="checkSelections()")
                   label.o(for='r'+number+"_c"+ val +"_2")
                     span._sr O
-                    svg(viewbox="0 0 40 40")
-                      circle(class="shape o", stroke="#80A4ED", stroke-width="4", fill="none", cx="20", cy="20", r="10")
+                    svg
+                      use.ico-o(xlink:href="#icoO")
 
 
       +row(1)
       +row(2)
       +row(3)
-
-
-    script(src='js/app.js', type="text/javascript")
